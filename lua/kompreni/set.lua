@@ -30,3 +30,6 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.listchars = {eol = '↵', space = '⋅', tab='>·',trail='~',extends='>',precedes='<'}
 vim.opt.list = true
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
