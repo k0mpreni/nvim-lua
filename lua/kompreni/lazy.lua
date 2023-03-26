@@ -33,10 +33,8 @@ return require('lazy').setup({
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
-            {
                 -- LSP Configuration & Plugins
                 'neovim/nvim-lspconfig',
-                dependencies = {
                     -- Automatically install LSPs to stdpath for neovim
                     'williamboman/mason.nvim',
                     'williamboman/mason-lspconfig.nvim',
@@ -46,9 +44,6 @@ return require('lazy').setup({
 
                     -- Additional lua configuration, makes nvim stuff amazing
                     'folke/neodev.nvim',
-                },
-            },
-
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-buffer' },
@@ -72,4 +67,14 @@ return require('lazy').setup({
 
     'nvim-lualine/lualine.nvim',           -- Fancier statusline
     'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
+    {
+        'folke/trouble.nvim',
+        dependencies = {
+
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function()
+            require("trouble").setup {}
+        end
+    },
 })
