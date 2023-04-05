@@ -55,6 +55,9 @@ return require('lazy').setup({
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
+
+            -- Other
+            'jose-elias-alvarez/null-ls.nvim',
         }
     },
     'posva/vim-vue',
