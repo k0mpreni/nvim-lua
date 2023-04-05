@@ -3,7 +3,10 @@ return require('lazy').setup({
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
         -- or                            , branch = '0.1.x',
-        dependencies = { { 'nvim-lua/plenary.nvim' } }
+        dependencies = { { 'nvim-lua/plenary.nvim' }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
+          config = function()
+            require("telescope").load_extension("live_grep_args")
+          end
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
     { "ellisonleao/gruvbox.nvim" },
@@ -12,8 +15,9 @@ return require('lazy').setup({
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         dependencies = {
-
             'nvim-treesitter/nvim-treesitter-textobjects',
+            'windwp/nvim-ts-autotag',
+            'windwp/nvim-autopairs'
         }
     },
     'nvim-treesitter/playground',
@@ -68,7 +72,13 @@ return require('lazy').setup({
         end
     },
 
-    'nvim-lualine/lualine.nvim',           -- Fancier statusline
+    {'nvim-lualine/lualine.nvim',
+        config = function()
+            require('lualine').setup {
+                options = { theme = 'gruvbox' }
+            }
+        end
+},           -- Fancier statusline
     'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
     {
         'folke/trouble.nvim',
