@@ -25,7 +25,8 @@ return require("lazy").setup({
 		"lukas-reineke/lsp-format.nvim",
 		config = function()
 			require("lsp-format").setup({})
-			require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
+			-- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
+			-- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
 		end,
 	},
 	"theprimeagen/harpoon",
@@ -71,7 +72,6 @@ return require("lazy").setup({
 			require("Comment").setup()
 		end,
 	},
-
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -103,5 +103,13 @@ return require("lazy").setup({
 		opts = {
 			--[[ things you want to change go here]]
 		},
+	},
+	{ "mfussenegger/nvim-dap" },
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap" },
+	},
+	{
+		"leoluz/nvim-dap-go",
 	},
 })

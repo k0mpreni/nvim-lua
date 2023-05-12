@@ -26,8 +26,8 @@ vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
-vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<leader>vsd", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>va", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>vp", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next)
 
