@@ -6,7 +6,9 @@ local async = event == "BufWritePost"
 
 null_ls.setup({
 	sources = {
-		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.prettierd.with({
+			extra_filetypes = { "svelte" },
+		}),
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.golines,
