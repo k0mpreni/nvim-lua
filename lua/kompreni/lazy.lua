@@ -77,6 +77,14 @@ return require("lazy").setup({
 		config = function()
 			require("lualine").setup({
 				options = { theme = "gruvbox" },
+				sections = {
+					lualine_c = {
+						{
+							"filename",
+							path = 4,
+						},
+					},
+				},
 			})
 		end,
 	}, -- Fancier statusline
@@ -84,7 +92,6 @@ return require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		dependencies = {
-
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
