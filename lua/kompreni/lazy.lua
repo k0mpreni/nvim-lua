@@ -10,6 +10,12 @@ return require("lazy").setup({
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
 	{ "ellisonleao/gruvbox.nvim" },
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({})
+		end,
+	},
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -63,6 +69,7 @@ return require("lazy").setup({
 
 			-- Other
 			"jose-elias-alvarez/null-ls.nvim",
+			"jose-elias-alvarez/typescript.nvim",
 		},
 	},
 	"posva/vim-vue",

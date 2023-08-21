@@ -32,16 +32,21 @@ vim.keymap.set("n", "<leader>vp", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next)
 
 vim.keymap.set("n", "<leader>gs", "<cmd>:tab G<CR>")
-vim.keymap.set("n", "<leader>q", "<cmd>:bd<CR>")
+vim.keymap.set("n", "<leader>wd", "<cmd>:vs<CR>")
+vim.keymap.set("n", "<leader>sh", "<cmd>:sp<CR>")
+vim.keymap.set("n", "gr", "<cmd>diffget //2<CR>")
+vim.keymap.set("n", "gu", "<cmd>diffget //3<CR>")
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- Search and replace
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "gr", "<cmd>diffget //2<CR>")
-vim.keymap.set("n", "gu", "<cmd>diffget //3<CR>")
+-- Set file executable
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 vim.keymap.set("n", "<leader>t", "<cmd>:ToggleTerm<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>:bd<CR>")

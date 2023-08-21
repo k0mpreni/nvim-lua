@@ -7,3 +7,5 @@ function ColorMyPencils(color)
 end
 
 ColorMyPencils()
+
+require("colorizer").setup()

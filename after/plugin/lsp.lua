@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspConfig = require("lspconfig")
 
 lsp.preset({
 	name = "minimal",
@@ -67,6 +68,30 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = "",
+	}
+	vim.lsp.buf.execute_command(params)
+end
+
+require("typescript").setup({
+	disable_commands = false, -- prevent the plugin from creating Vim commands
+	debug = false, -- enable debug logging for commands
+	go_to_source_definition = {
+		fallback = true, -- fall back to standard LSP definition on failure
+	},
+	server = { -- pass options to lspconfig's setup method
+		commands = {
+			OrganizeImports = {
+				organize_imports,
+				description = "Organize Imports",
+			},
+		},
+	},
+})
 
 lsp.setup()
 
