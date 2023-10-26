@@ -21,9 +21,9 @@ null_ls.setup({
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.eslint_d,
 		null_ls.builtins.code_actions.eslint_d,
-		null_ls.builtins.diagnostics.eslint_d.with({
-			diagnostics_format = "[eslint] #{m}\n(#{c})",
-		}),
+		-- null_ls.builtins.diagnostics.eslint_d.with({
+		-- 	diagnostics_format = "[eslint] #{m}\n(#{c})",
+		-- }),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
