@@ -90,6 +90,12 @@ require("typescript").setup({
 				description = "Organize Imports",
 			},
 		},
+		init_options = {
+			preferences = {
+				importModuleSpecifierPreference = "non-relative",
+				importModuleSpecifierEnding = "minimal",
+			},
+		},
 	},
 })
 
