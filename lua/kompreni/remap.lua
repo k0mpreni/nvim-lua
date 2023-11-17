@@ -34,6 +34,7 @@ vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>gs", "<cmd>:tab G<CR>")
 vim.keymap.set("n", "<leader>wd", "<cmd>:vs<CR>")
 vim.keymap.set("n", "<leader>sh", "<cmd>:sp<CR>")
+
 vim.keymap.set("n", "gr", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "gu", "<cmd>diffget //3<CR>")
 
