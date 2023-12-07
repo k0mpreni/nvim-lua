@@ -26,7 +26,7 @@ return require("lazy").setup({
 			"windwp/nvim-autopairs",
 		},
 	},
-	"ggandor/leap.nvim",
+	-- "ggandor/leap.nvim",
 	"nvim-treesitter/playground",
 	{
 		"lukas-reineke/lsp-format.nvim",
