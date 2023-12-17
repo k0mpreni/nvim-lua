@@ -1,45 +1,46 @@
 return require("lazy").setup({
-    {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
-        -- or                            , branch = '0.1.x',
-        dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
-        config = function()
-            require("telescope").load_extension("live_grep_args")
-        end,
-    },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
-    { "ellisonleao/gruvbox.nvim" },
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup({})
-        end,
-    },
-
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "windwp/nvim-ts-autotag",
-            "windwp/nvim-autopairs",
-        },
-    },
-    "nvim-treesitter/playground",
-    {
-        "lukas-reineke/lsp-format.nvim",
-        config = function()
-            require("lsp-format").setup({})
-            -- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
-            -- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
-        end,
-    },
-    "theprimeagen/harpoon",
-    "mbbill/undotree",
-    "tpope/vim-fugitive",
-    "tpope/vim-rhubarb",
-    "lewis6991/gitsigns.nvim",
+	"pixelastic/vim-undodir-tree",
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		-- or                            , branch = '0.1.x',
+		dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
+		config = function()
+			require("telescope").load_extension("live_grep_args")
+		end,
+	},
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
+	{ "ellisonleao/gruvbox.nvim" },
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"windwp/nvim-ts-autotag",
+			"windwp/nvim-autopairs",
+		},
+	},
+	-- "ggandor/leap.nvim",
+	"nvim-treesitter/playground",
+	{
+		"lukas-reineke/lsp-format.nvim",
+		config = function()
+			require("lsp-format").setup({})
+			-- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
+			-- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
+		end,
+	},
+	"theprimeagen/harpoon",
+	"mbbill/undotree",
+	"tpope/vim-fugitive",
+	"tpope/vim-rhubarb",
+	"lewis6991/gitsigns.nvim",
 
     {
         "VonHeikemen/lsp-zero.nvim",

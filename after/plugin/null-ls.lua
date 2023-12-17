@@ -3,8 +3,10 @@ local null_ls = require("null-ls")
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 local event = "BufWritePre" -- or "BufWritePost"
 local async = event == "BufWritePost"
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
+	debug = true,
 	sources = {
 		null_ls.builtins.formatting.prettierd.with({
 			extra_filetypes = { "svelte" },
@@ -15,8 +17,10 @@ null_ls.setup({
 		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.goimports,
 		-- null_ls.builtins.diagnostics.phpcs,
-		null_ls.builtins.formatting.phpcsfixer,
+		-- null_ls.builtins.formatting.phpcsfixer,
 		null_ls.builtins.formatting.rustfmt,
+		null_ls.builtins.formatting.eslint_d,
+		null_ls.builtins.code_actions.eslint_d,
 		-- null_ls.builtins.diagnostics.eslint_d.with({
 		-- 	diagnostics_format = "[eslint] #{m}\n(#{c})",
 		-- }),
@@ -28,14 +32,13 @@ null_ls.setup({
 			end, { buffer = bufnr, desc = "[lsp] format" })
 
 			-- format on save
-			vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-			vim.api.nvim_create_autocmd(event, {
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
 				buffer = bufnr,
-				group = group,
 				callback = function()
 					vim.lsp.buf.format({ bufnr = bufnr, async = async })
 				end,
-				desc = "[lsp] format on save",
 			})
 		end
 
