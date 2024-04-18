@@ -26,7 +26,7 @@ lspconfig.tsserver.setup({
             path = tsdk
         }
     },
-    filetypes = {'javascript', 'typescript', 'vue'}
+    filetypes = {'javascript', 'typescript','javascriptreact', 'typescriptreact', 'vue'}
 })
 
 lsp.preset({
