@@ -15,12 +15,11 @@ null_ls.setup({
 		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.golines,
 		null_ls.builtins.formatting.goimports,
-		null_ls.builtins.formatting.goimports,
 		-- null_ls.builtins.diagnostics.phpcs,
 		-- null_ls.builtins.formatting.phpcsfixer,
 		null_ls.builtins.formatting.rustfmt,
-		null_ls.builtins.formatting.eslint_d,
-		null_ls.builtins.code_actions.eslint_d,
+		null_ls.builtins.formatting.eslint,
+		null_ls.builtins.code_actions.eslint,
 		-- null_ls.builtins.diagnostics.eslint_d.with({
 		-- 	diagnostics_format = "[eslint] #{m}\n(#{c})",
 		-- }),
@@ -33,12 +32,17 @@ null_ls.setup({
 
 			-- format on save
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			-- vim.api.nvim_create_autocmd("BufWritePre", {
+			-- 	group = augroup,
+			-- 	buffer = bufnr,
+			-- 	callback = function()
+			-- 		vim.lsp.buf.format({ bufnr = bufnr, async = async })
+			-- 	end,
+			-- })
 			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = bufnr, async = async })
-				end,
+				pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.vue" },
+				command = "silent! EslintFixAll",
+				group = vim.api.nvim_create_augroup("MyAutocmdsJavaScripFormatting", {}),
 			})
 		end
 

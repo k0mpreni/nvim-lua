@@ -11,6 +11,7 @@ return require("lazy").setup({
     },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
     { "ellisonleao/gruvbox.nvim" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
@@ -21,7 +22,7 @@ return require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
+                "nvim-treesitter/nvim-treesitter-textobjects",
             "windwp/nvim-ts-autotag",
             "windwp/nvim-autopairs",
         },
@@ -122,7 +123,7 @@ return require("lazy").setup({
     { "mfussenegger/nvim-dap" },
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap" },
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     },
     {
         "leoluz/nvim-dap-go",
