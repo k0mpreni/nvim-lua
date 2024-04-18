@@ -5,37 +5,26 @@ require("mason").setup()
 local lsp = require("lsp-zero")
 local home = os.getenv("HOME")
 local lspconfig = require("lspconfig")
-local tsdk = require('mason-registry').get_package('typescript-language-server'):get_install_path() ..
-                 '/node_modules/typescript/lib'
-local vuePlugin = home .. '/node_modules/@vue/typescript_plugin'
 
 require('mason-lspconfig').setup({
     ensure_installed = {'tsserver', 'volar'}
 })
+local tsdk = require('mason-registry').get_package('typescript-language-server'):get_install_path() ..
+                 '/node_modules/typescript/lib'
+local vuePlugin = home .. '/node_modules/@vue/typescript_plugin'
 
-print(vuePlugin)
-
-lspconfig.volar.setup({
-    filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
-    init_options = {
-        -- vue = {
-        --     hybridMode = false
-        -- },
-        typescript = {
-            tsdk = tsdk
-        },
-    }
-})
+lspconfig.volar.setup({})
 lspconfig.tsserver.setup({
     init_options = {
-        tsdk = tsdk,
-        plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vuePlugin,
-              languages = {"javascript", "typescript", "vue"},
-            },
-          },
+        plugins = {{
+            name = "@vue/typescript-plugin",
+            location = vuePlugin,
+            languages = {"javascript", "typescript", "vue"}
+        }},
+        tsserver = {
+            -- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
+            path = tsdk
+        }
     },
     filetypes = {'javascript', 'typescript', 'vue'}
 })
