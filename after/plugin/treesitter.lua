@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all"
-	ensure_installed = { "javascript", "typescript", "go", "lua", "rust", "php", "vue" },
+	ensure_installed = { "javascript", "typescript", "go", "lua", "rust", "php", "vue", "templ" },
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
 	-- Automatically install missing parsers when entering buffer
@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		-- `false` will disable the whole extension
 		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
 	autotag = {
 		enable = true,

@@ -128,6 +128,28 @@ return require("lazy").setup({
     {
         "leoluz/nvim-dap-go",
     },
+    {
+          'stevearc/oil.nvim',
+            opts = {
+                keymaps = {
+                    ["<C-p>"] = false,
+                    ["<leader>p"] = "actions.preview",
+                }
+            },
+              -- Optional dependencies
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+              --   }
+    },
     "folke/neoconf.nvim",
-    "folke/neodev.nvim"
+    "folke/neodev.nvim",
+    {
+          "folke/zen-mode.nvim",
+            opts = {
+                    -- your configuration comes here
+                    --     -- or leave it empty to use the default settings
+                    --         -- refer to the configuration section below
+                    --           }
+                    --           }
+            }
+    }
 })
