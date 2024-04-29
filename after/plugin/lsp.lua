@@ -29,6 +29,13 @@ lspconfig.htmx.setup({
 	filetypes = { "html", "templ" },
 })
 
+-- PHP
+lspconfig.intelephense.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "php" },
+})
+
 -- TAILWIND
 lspconfig.tailwindcss.setup({
 	on_attach = on_attach,

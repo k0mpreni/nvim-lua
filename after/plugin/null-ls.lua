@@ -40,7 +40,7 @@ null_ls.setup({
 			-- 	end,
 			-- })
 			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.vue" },
+				pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.vue", "*.svelte" },
 				command = "silent! EslintFixAll",
 				group = vim.api.nvim_create_augroup("MyAutocmdsJavaScripFormatting", {}),
 			})
