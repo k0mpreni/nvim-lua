@@ -14,6 +14,7 @@ require("conform").setup({
 		typescript = { "eslint_d", "prettierd" },
 		vue = { "eslint_d" },
 		markdown = { "prettierd", "markdownlint" },
+		templ = { "templ" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
