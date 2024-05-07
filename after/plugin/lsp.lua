@@ -54,6 +54,9 @@ lspconfig.tailwindcss.setup({
 	init_options = { userLanguages = { templ = "html" } },
 })
 
+-- LUA
+lspconfig.lua_ls.setup({})
+
 -- ESLINT
 lspconfig.eslint.setup({})
 

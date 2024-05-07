@@ -22,8 +22,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", "<nop>")
 
 vim.keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>va", vim.lsp.buf.code_action)
