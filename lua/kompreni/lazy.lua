@@ -70,10 +70,10 @@ return require("lazy").setup({
 			-- 		"nvimtools/none-ls-extras.nvim",
 			-- 	},
 			-- },
-      {
-  'stevearc/conform.nvim',
-  opts = {},
-},
+			{
+				"stevearc/conform.nvim",
+				opts = {},
+			},
 			-- "jose-elias-alvarez/null-ls.nvim",
 			"jose-elias-alvarez/typescript.nvim",
 		},
@@ -94,10 +94,15 @@ return require("lazy").setup({
 					theme = "gruvbox",
 				},
 				sections = {
+					lualine_a = { "mode" },
+					lualine_b = {},
 					lualine_c = { {
 						"filename",
-						path = 4,
+						path = 1,
 					} },
+					lualine_x = { "filetype" },
+					lualine_y = {},
+					lualine_z = {},
 				},
 			})
 		end,
