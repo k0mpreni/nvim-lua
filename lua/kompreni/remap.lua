@@ -1,3 +1,5 @@
+vim.opt.pastetoggle = "<F2>"
+
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("n", "<C>w", "<cmd>:w<CR>")
@@ -16,7 +18,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>Y", [["+P]])
+-- vim.keymap.set("n", "<leader>R", [["+R]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 

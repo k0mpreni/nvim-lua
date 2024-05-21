@@ -70,6 +70,8 @@ lspconfig.volar.setup({})
 -- GO
 lspconfig.gopls.setup({})
 
+lspconfig.sqlls.setup({})
+
 -- TYPESCRIPT
 lspconfig.tsserver.setup({
 	init_options = {
@@ -99,7 +101,7 @@ local cmp = require("cmp")
 local cmp_select = {
 	behavior = cmp.SelectBehavior.Select,
 }
-local cmp_mappings = lsp.defaults.cmp_mappings({
+local cmp_mappings = cmp.mapping.preset.insert({
 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 	["<CR>"] = cmp.mapping.confirm({
@@ -119,6 +121,17 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp_mappings,
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" }, -- For luasnip users.
+	}, {
+		{ name = "buffer" },
+	}),
 })
 
 lsp.set_preferences({
