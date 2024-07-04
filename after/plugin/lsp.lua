@@ -65,21 +65,48 @@ lspconfig.templ.setup({})
 vim.filetype.add({ extension = { templ = "templ" } })
 
 -- VOLAR / VUE
-lspconfig.volar.setup({})
+lspconfig.volar.setup({
+	filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	-- restrict volar to only attach when in a vue/nuxt project
+	root_dir = require("lspconfig").util.root_pattern(
+		"vue.config.js",
+		"vue.config.ts",
+		"nuxt.config.js",
+		"nuxt.config.ts"
+	),
+	init_options = {
+		-- vue = {
+		-- 	hybridMode = false,
+		-- },
+		-- typescript = {
+		-- 	tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+		-- },
+	},
+})
 
 -- GO
 lspconfig.gopls.setup({})
 
 lspconfig.sqlls.setup({})
 
+local volar_path = require("mason-registry").get_package("vue-language-server"):get_install_path()
+	.. "/node_modules/@vue/langage-server"
+-- local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
 -- TYPESCRIPT
 lspconfig.tsserver.setup({
 	init_options = {
+		-- plugins = {
+		-- 	{
+		-- 		name = "@vue/typescript-plugin",
+		-- 		location = vuePlugin,
+		-- 		languages = { "javascript", "typescript", "vue" },
+		-- 	},
+		-- },
 		plugins = {
 			{
 				name = "@vue/typescript-plugin",
-				location = vuePlugin,
-				languages = { "javascript", "typescript", "vue" },
+				location = volar_path,
+				languages = { "vue" },
 			},
 		},
 		tsserver = {

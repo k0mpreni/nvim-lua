@@ -14,7 +14,7 @@ conform.setup({
 		jsonc = { "prettier" },
 		scss = { "prettierd" },
 		typescript = { "eslint", "prettierd" },
-		vue = { "prettierd" },
+		vue = { "eslint", "prettierd" },
 		markdown = { "prettierd", "markdownlint" },
 		templ = { "templ" },
 		sql = { "sql_formatter" },
