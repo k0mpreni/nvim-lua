@@ -2,11 +2,24 @@ return require("lazy").setup({
 	"pixelastic/vim-undodir-tree",
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
+		tag = "0.1.8",
 		-- or                            , branch = '0.1.x',
-		dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			"jonarrien/telescope-cmdline.nvim",
+		},
+		keys = {
+			{ ":", "<cmd>Telescope cmdline<cr>", desc = "Cmdline" },
+		},
+		opts = {
+			extensions = {
+				cmdline = {},
+			},
+		},
 		config = function()
 			require("telescope").load_extension("live_grep_args")
+			require("telescope").load_extension("cmdline")
 		end,
 	},
 	{
@@ -15,23 +28,7 @@ return require("lazy").setup({
 		cond = vim.fn.executable("make") == 1,
 	},
 	{ "ellisonleao/gruvbox.nvim" },
-	{
-		"projekt0n/github-nvim-theme",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			require("github-theme").setup({
-				-- ...
-			})
-
-			vim.cmd("colorscheme github_dark")
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-	},
+	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -51,7 +48,6 @@ return require("lazy").setup({
 		"lukas-reineke/lsp-format.nvim",
 		config = function()
 			require("lsp-format").setup({})
-			-- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
 			-- require("lspconfig").gopls.setup({ on_attach = require("lsp-format").on_attach })
 		end,
 	},
@@ -80,17 +76,10 @@ return require("lazy").setup({
 					"rafamadriz/friendly-snippets",
 				},
 			},
-			-- {
-			-- 	"nvimtools/none-ls.nvim",
-			-- 	dependencies = {
-			-- 		"nvimtools/none-ls-extras.nvim",
-			-- 	},
-			-- },
 			{
 				"stevearc/conform.nvim",
 				opts = {},
 			},
-			-- "jose-elias-alvarez/null-ls.nvim",
 			"jose-elias-alvarez/typescript.nvim",
 		},
 	},
@@ -116,7 +105,7 @@ return require("lazy").setup({
 						"filename",
 						path = 1,
 					} },
-					lualine_x = { "filetype" },
+					lualine_x = { "copilot", "filetype" },
 					lualine_y = {},
 					lualine_z = {},
 				},
@@ -166,7 +155,6 @@ return require("lazy").setup({
 		},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		--   }
 	},
 	{
 		"refractalize/oil-git-status.nvim",
@@ -177,6 +165,31 @@ return require("lazy").setup({
 	},
 	"folke/neoconf.nvim",
 	"folke/neodev.nvim",
+	-- "github/copilot.vim",
+	{
+		"zbirenbaum/copilot.lua",
+		-- cmd = "Copilot",
+		build = ":Copilot auth",
+		opts = {
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+			filetypes = {
+				vue = true,
+				javascript = true,
+				typescript = true,
+				javascriptreact = true,
+				typescriptreact = true,
+				markdown = true,
+				help = true,
+			},
+		},
+	},
+	{ "AndreM222/copilot-lualine" },
+	{
+		"zbirenbaum/copilot-cmp",
+		opts = {},
+	},
+
 	{
 		"folke/zen-mode.nvim",
 		opts = {
@@ -186,5 +199,11 @@ return require("lazy").setup({
 			--           }
 			--           }
 		},
+	},
+	{
+		"MagicDuck/grug-far.nvim",
+		config = function()
+			require("grug-far").setup({})
+		end,
 	},
 })
