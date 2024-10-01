@@ -105,7 +105,8 @@ return require("lazy").setup({
 						"filename",
 						path = 1,
 					} },
-					lualine_x = { "copilot", "filetype" },
+					-- lualine_x = { "copilot", "filetype" },
+					lualine_x = { "filetype" },
 					lualine_y = {},
 					lualine_z = {},
 				},
@@ -165,30 +166,29 @@ return require("lazy").setup({
 	},
 	"folke/neoconf.nvim",
 	"folke/neodev.nvim",
-	-- "github/copilot.vim",
-	{
-		"zbirenbaum/copilot.lua",
-		-- cmd = "Copilot",
-		build = ":Copilot auth",
-		opts = {
-			suggestion = { enabled = false },
-			panel = { enabled = false },
-			filetypes = {
-				vue = true,
-				javascript = true,
-				typescript = true,
-				javascriptreact = true,
-				typescriptreact = true,
-				markdown = true,
-				help = true,
-			},
-		},
-	},
-	{ "AndreM222/copilot-lualine" },
-	{
-		"zbirenbaum/copilot-cmp",
-		opts = {},
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	-- cmd = "Copilot",
+	-- 	build = ":Copilot auth",
+	-- 	opts = {
+	-- 		suggestion = { enabled = false },
+	-- 		panel = { enabled = false },
+	-- 		filetypes = {
+	-- 			vue = true,
+	-- 			javascript = true,
+	-- 			typescript = true,
+	-- 			javascriptreact = true,
+	-- 			typescriptreact = true,
+	-- 			markdown = true,
+	-- 			help = true,
+	-- 		},
+	-- 	},
+	-- },
+	-- { "AndreM222/copilot-lualine" },
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	opts = {},
+	-- },
 
 	{
 		"folke/zen-mode.nvim",
