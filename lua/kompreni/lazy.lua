@@ -28,7 +28,6 @@ return require("lazy").setup({
 		cond = vim.fn.executable("make") == 1,
 	},
 	{ "ellisonleao/gruvbox.nvim" },
-	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -121,18 +120,6 @@ return require("lazy").setup({
 			require("trouble").setup({})
 		end,
 	},
-	{
-		"akinsho/toggleterm.nvim",
-		version = "*",
-		config = function()
-			require("toggleterm").setup({
-				direction = "float",
-				open_mapping = [[<c-t>]],
-			})
-		end,
-		opts = { --[[ things you want to change go here]]
-		},
-	},
 	{ "mfussenegger/nvim-dap" },
 	{
 		"rcarriga/nvim-dap-ui",
@@ -189,17 +176,6 @@ return require("lazy").setup({
 	-- 	"zbirenbaum/copilot-cmp",
 	-- 	opts = {},
 	-- },
-
-	{
-		"folke/zen-mode.nvim",
-		opts = {
-			-- your configuration comes here
-			--     -- or leave it empty to use the default settings
-			--         -- refer to the configuration section below
-			--           }
-			--           }
-		},
-	},
 	{
 		"MagicDuck/grug-far.nvim",
 		config = function()

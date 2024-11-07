@@ -7,7 +7,7 @@ local home = os.getenv("HOME")
 local lspconfig = require("lspconfig")
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "volar" },
+	ensure_installed = { "ts_ls", "volar" },
 })
 local tsdk = require("mason-registry").get_package("typescript-language-server"):get_install_path()
 	.. "/node_modules/typescript/lib"
@@ -93,7 +93,7 @@ local volar_path = require("mason-registry").get_package("vue-language-server"):
 	.. "/node_modules/@vue/langage-server"
 -- local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
 -- TYPESCRIPT
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	init_options = {
 		-- plugins = {
 		-- 	{
@@ -109,7 +109,7 @@ lspconfig.tsserver.setup({
 				languages = { "vue" },
 			},
 		},
-		tsserver = {
+		ts_ls = {
 			-- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
 			path = tsdk,
 		},
