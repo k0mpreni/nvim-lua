@@ -76,6 +76,7 @@ return {
       'eslint.config.ts',
       'eslint.config.mts',
       'eslint.config.cts',
+      'package.json',
     }
 
     local fname = vim.api.nvim_buf_get_name(bufnr)
@@ -105,8 +106,7 @@ return {
     -- nodePath configures the directory in which the eslint server should start its node_modules resolution.
     -- This path is relative to the workspace folder (root dir) of the server instance.
     nodePath = '',
-    -- use the workspace folder location or the file location (if no workspace folder is open) as the working directory
-    workingDirectory = { mode = 'location' },
+    workingDirectories = { mode = 'auto' },
     codeAction = {
       disableRuleComment = {
         enable = true,

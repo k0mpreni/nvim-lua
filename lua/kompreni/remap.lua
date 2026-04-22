@@ -1,4 +1,4 @@
--- vim.opt.pastetoggle = "<F2>"
+-- vim.opt.pastetoggle = "<F2>"rem
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", {
   desc = "Open parent directory"
 })
@@ -30,7 +30,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", "<nop>")
 
 vim.keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
--- vim.keymap.set("n", "<leader>va", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>va", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>vp", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next)
@@ -53,5 +53,6 @@ vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- Set file executable
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- vim.keymap.set("n", "<leader>t", "<cmd>:ToggleTerm<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>:bd<CR>")
+-- Reload current directory in netrw
+vim.api.nvim_set_keymap('n', '<leader>r', ':e .<CR>', { noremap = true, silent = true })

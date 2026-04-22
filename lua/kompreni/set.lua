@@ -28,8 +28,13 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.opt.listchars = {eol = '↵', space = '⋅', tab='>·',trail='~',extends='>',precedes='<'}
+vim.opt.listchars = { eol = '↵', space = '⋅', tab = '>·', trail = '~', extends = '>', precedes = '<' }
 vim.opt.list = true
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = "*",
+})
